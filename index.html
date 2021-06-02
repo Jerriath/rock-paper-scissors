@@ -3,9 +3,35 @@
 <html>
     <head>
         <title>Rock Paper Scissors!</title>
-        <script src="rps.js"></script>
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <h1>Deez Nuts</h1>
+        <div id="startPage">
+            <h1>
+                Welcome 
+                <br>to
+                <br> ROCK, PAPER, SCISSORS!!!
+            </h1>
+            <button id="startBtn">Begin!</button>
+        </div>
+        <header id="titleDiv">
+            <h1 id ="title">Rock Paper Scissors!</h1>
+        </header> 
+        <div id="scoreArea">
+            <div id="playerScore">
+                <h2 class="score">Player</h2>
+                <h2 class="score" id="playerPoints">0</h2>
+            </div>
+            <div id="compScore">
+                <h2 class="score">Computer</h2>
+                <h2 class="score" id="compPoints">0</h2>
+            </div>
+        </div>
+        <div id="playerBtns">
+            <button id="rock">Rock</button>
+            <button id="paper"> Paper</button>
+            <button id="scissors">Scissors</button>
+        </div>
+        <script src="rps.js"></script>
     </body>
 </html>

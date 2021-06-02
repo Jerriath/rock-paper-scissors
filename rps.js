@@ -19,7 +19,6 @@ function computerPlay() {
 function playRound(playerPick, computerPick) {
     let player = playerPick.toLowerCase(); 
     let computer = computerPick;
-    console.log(computer);
     let rock = "rock";
     let paper = "paper";
     let scissors = "scissors";
@@ -67,7 +66,34 @@ function playRound(playerPick, computerPick) {
     }
 };
 
-function game() {
+//-----Section deals with rps buttons-----
+const rockBtn = document.querySelector("#rock");
+rockBtn.addEventListener("click", function(e) {
+    console.log(e.srcElement.innerText);
+    let outcome = playRound(e.srcElement.innerText, computerPlay());
+    console.log(outcome);
+});
+const paperBtn = document.querySelector("#paper");
+paperBtn.addEventListener("click", function(e) {
+    console.log(e.srcElement.innerText);
+    let outcome = playRound(e.srcElement.innerText, computerPlay());
+    console.log(outcome);
+});
+const scissorsBtn = document.querySelector("#scissors");
+scissorsBtn.addEventListener("click", function(e) {
+    console.log(e.srcElement.innerText);
+    let outcome = playRound(e.srcElement.innerText, computerPlay());
+    console.log(outcome);
+});
+
+//-----Section deals with begin button-----
+const startBtn = document.querySelector("#startBtn");
+startBtn.addEventListener("click", function(e) {
+    const startPage = document.querySelector("#startPage");
+    startPage.style.display = "none";
+})
+
+/*function game() {
     let playerWins = 0;
     let compWins = 0;
     for (let i = 0; i < 5; i++) 
@@ -109,4 +135,4 @@ function game() {
     {
         console.log("It's a Tie! Computer === Human");
     }
-};
+};*/
