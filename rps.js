@@ -25,16 +25,19 @@ function playRound(playerPick, computerPick) {
     //Rock scenarios
     if (player == computer) 
     {
+        document.querySelector("#roundResult").textContent = "Tie!";
         return "It's a tie! What a Coincidence"
     }
     if (player == rock) {
         if (computer == paper)
         {
+            document.querySelector("#roundResult").textContent = "Comp win!";
             incCompScore();
             return "You Lose! Paper beats Rock";
         }
         else if (computer == scissors)
         {
+            document.querySelector("#roundResult").textContent = "You win!"
             incPlayerScore();
             return "You Win! Rock beats Scissors";
         }
@@ -44,11 +47,13 @@ function playRound(playerPick, computerPick) {
     {
         if (computer == rock)
         {
+            document.querySelector("#roundResult").textContent = "You win!";
             incPlayerScore();
             return "You Win! Paper beats Rock";
         }
         else if (computer == scissors)
         {
+            document.querySelector("#roundResult").textContent = "Comp win!";
             incCompScore();
             return "You Lose! Scissors beats Paper";
         }
@@ -58,11 +63,13 @@ function playRound(playerPick, computerPick) {
     {
         if (computer == rock)
         {
+            document.querySelector("#roundResult").textContent = "Comp win!";
             incCompScore();
             return "You Lose! Rock beats Scissors";
         }
         else if (computer == scissors)
         {
+            document.querySelector("#roundResult").textContent = "You win!";
             incPlayerScore();
             return "You Win! Scissors beats Paper";
         }
