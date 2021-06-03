@@ -99,6 +99,12 @@ startBtn.addEventListener("click", function(e) {
     startPage.style.display = "none";
 })
 
+//-----Section deals with reset button-----
+const resetBtn = document.querySelector("#reset");
+resetBtn.addEventListener("click", function(e) {
+    resetGame();
+})
+
 //-----Incrememnts player score-----
 function incPlayerScore() {
     let playerPoints = document.querySelector("#playerPoints");
@@ -142,7 +148,7 @@ function displayEndMsg(playerWon) {
     {
         let endDiv = document.querySelector("#endDiv");
         document.querySelector("#endMsg").textContent = 
-            "Congratulations!!! you're better than a computer.";;
+            "Congratulations!!! You're better than a computer.";;
         let buttons = document. querySelector("#playerBtns");
         endDiv.style.display = "block";
         buttons.style.display = "none";
@@ -151,7 +157,7 @@ function displayEndMsg(playerWon) {
         {
             let endDiv = document.querySelector("#endDiv");
             document.querySelector("#endMsg").textContent = 
-                "Looks like coomputers > Humans :)";;
+                "Looks like computers > Humans :)";;
             let buttons = document. querySelector("#playerBtns");
             endDiv.style.display = "block";
             buttons.style.display = "none";
@@ -159,6 +165,14 @@ function displayEndMsg(playerWon) {
     }
 }
 
+function resetGame() {
+    document.querySelector("#playerPoints").textContent = "0";
+    document.querySelector("#compPoints").textContent = "0";
+    document.querySelector("#endMsg").textContent = "";
+    document.querySelector("#endDiv").style.display = "none";
+    document.querySelector("#playerBtns").style.display = "block";
+    document.querySelector("#startPage").style.display = "block";
+}
 //-----Old function used for in-console version of game-----
 /*function game() {
     let playerWins = 0;
