@@ -30,10 +30,12 @@ function playRound(playerPick, computerPick) {
     if (player == rock) {
         if (computer == paper)
         {
+            incCompScore();
             return "You Lose! Paper beats Rock";
         }
         else if (computer == scissors)
         {
+            incPlayerScore();
             return "You Win! Rock beats Scissors";
         }
     }
@@ -42,10 +44,12 @@ function playRound(playerPick, computerPick) {
     {
         if (computer == rock)
         {
+            incPlayerScore();
             return "You Win! Paper beats Rock";
         }
         else if (computer == scissors)
         {
+            incCompScore();
             return "You Lose! Scissors beats Paper";
         }
     }
@@ -54,10 +58,12 @@ function playRound(playerPick, computerPick) {
     {
         if (computer == rock)
         {
+            incCompScore();
             return "You Lose! Rock beats Scissors";
         }
         else if (computer == scissors)
         {
+            incPlayerScore();
             return "You Win! Scissors beats Paper";
         }
     }
@@ -91,12 +97,35 @@ const startBtn = document.querySelector("#startBtn");
 startBtn.addEventListener("click", function(e) {
     const startPage = document.querySelector("#startPage");
     startPage.style.display = "none";
+    //checkEnd();
 })
+
+function incPlayerScore() {
+    let playerPoints = document.querySelector("#playerPoints");
+    let playerScore = parseInt(playerPoints.textContent);
+    playerScore++;
+    playerPoints.textContent = playerScore.toString();
+}
+
+function incCompScore() {
+    let compPoints = document.querySelector("#compPoints");
+    let compScore = parseInt(compPoints.textContent);
+    compScore++;
+    compPoints.textContent = compScore.toString();
+}
+
+function checkEnd() {
+    let endCondition = false;
+    while (!endCondition) 
+    {
+        //Still need to create function to check if player or comp won
+    }
+}
 
 /*function game() {
     let playerWins = 0;
     let compWins = 0;
-    for (let i = 0; i < 5; i++) 
+    for (let i = 0; i < 8; i++) 
     {
         let valid = false;
         let playerChoice = prompt("Please enter rock, paper, or scissors: ");
@@ -117,6 +146,7 @@ startBtn.addEventListener("click", function(e) {
         if (roundResult.charAt(4) === "W")
         {
             playerWins++;
+            
         }
         else if (roundResult.charAt(4) === "L")
         {
