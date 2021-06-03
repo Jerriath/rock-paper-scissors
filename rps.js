@@ -97,31 +97,69 @@ const startBtn = document.querySelector("#startBtn");
 startBtn.addEventListener("click", function(e) {
     const startPage = document.querySelector("#startPage");
     startPage.style.display = "none";
-    //checkEnd();
 })
 
+//-----Incrememnts player score-----
 function incPlayerScore() {
     let playerPoints = document.querySelector("#playerPoints");
     let playerScore = parseInt(playerPoints.textContent);
     playerScore++;
     playerPoints.textContent = playerScore.toString();
+    checkEnd();
 }
 
+//-----Increments computer score-----
 function incCompScore() {
     let compPoints = document.querySelector("#compPoints");
     let compScore = parseInt(compPoints.textContent);
     compScore++;
     compPoints.textContent = compScore.toString();
+    checkEnd();
 }
 
+//-----Checks to see if player or comp has reached win condition-----
 function checkEnd() {
-    let endCondition = false;
-    while (!endCondition) 
+    let playerWon = false;
+    let compWon = false;
+    let playerWins = parseInt(document.querySelector("#playerPoints").textContent);
+    let compWins = parseInt(document.querySelector("#compPoints").textContent);
+    if (playerWins >= 5)
     {
-        //Still need to create function to check if player or comp won
+        playerWon = true;
+    }
+    else if (compWins >= 5)
+    {
+        compWon = true;
+    }
+    if (playerWon || compWon) {
+        displayEndMsg(playerWon);
     }
 }
 
+//-----Hides the player buttons and displays end msg depending on who won-----
+function displayEndMsg(playerWon) {
+    if (playerWon)
+    {
+        let endDiv = document.querySelector("#endDiv");
+        document.querySelector("#endMsg").textContent = 
+            "Congratulations!!! you're better than a computer.";;
+        let buttons = document. querySelector("#playerBtns");
+        endDiv.style.display = "block";
+        buttons.style.display = "none";
+    }
+    else if (!playerWon) {
+        {
+            let endDiv = document.querySelector("#endDiv");
+            document.querySelector("#endMsg").textContent = 
+                "Looks like coomputers > Humans :)";;
+            let buttons = document. querySelector("#playerBtns");
+            endDiv.style.display = "block";
+            buttons.style.display = "none";
+        }
+    }
+}
+
+//-----Old function used for in-console version of game-----
 /*function game() {
     let playerWins = 0;
     let compWins = 0;

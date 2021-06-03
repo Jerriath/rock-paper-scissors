@@ -75,9 +75,19 @@
     justify-content: space-between;
 }
 
+#endDiv {
+    display: none;
+    text-align: center;
+    font-size: 35px;
+}
+
 .score {
     text-align: center;
     padding-top: 100px;
     font-family: monospace;
     font-size: 300%;
+}
+
+body {
+    font-family: monospace;
 }
